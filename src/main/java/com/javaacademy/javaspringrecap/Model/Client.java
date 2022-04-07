@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,6 +15,10 @@ public class Client {
     private String name;
     @OneToMany
     private List<Card> carduri;
+
+    public Client(){
+        carduri = new ArrayList<>();
+    }
 
     public Integer getId() {
         return id;
@@ -35,7 +40,7 @@ public class Client {
         return carduri;
     }
 
-    public void setCarduri(List<Card> carduri) {
-        this.carduri = carduri;
+    public void addCard(Card c){
+        carduri.add(c);
     }
 }
